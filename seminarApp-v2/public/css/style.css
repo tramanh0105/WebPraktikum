@@ -1,0 +1,146 @@
+* {
+  font-family: Helvetica, Arial;
+}
+
+/*adding style for valid, invalid,required input*/
+input:invalid {
+  background-color: #FF3B3F;
+  color: white;
+  border-right-color: red;
+}
+
+input:valid {
+  border-right-color: #00ff99;
+}
+
+input:required {
+  border-right-color: #ff9900;
+}
+
+.required::after {
+  content: " erforderliche Eingabe";
+  color: #FC4A1A;
+}
+
+/*trivia things*/
+.zusatz::before {
+  content: ' Aktuelle Meldungen';
+  color: #66B9BF;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: salmon;
+  text-decoration: none;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+/*styling the seminar table*/
+#table th {
+  background-color: #FC4A1A;
+  color: #DFDCE3;
+}
+
+#table tr:nth-of-type(even) {
+  background-color: #F78733;
+  color: #DFDCE3;
+}
+
+/*adding evelope icon next to email link*/
+#mail::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: url("images/Mail.jpeg") no-repeat;
+  background-size: contain;
+}
+
+footer {
+  color: #96858F;
+}
+
+/*Zusatzinfo stylen*/
+aside {
+  padding: 3px;
+  margin: 3px;
+  border: 2px dashed #07889B;
+}
+
+/*Formular stylen*/
+.fieldset {
+  margin: 5px;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.legend {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  font-style: italic;
+  background-color: #E37222;
+  color: #DFDCE3;
+  font-size: 0.85em;
+}
+
+/*Inhaltliche Bloecke stylen*/
+[class ^="div"] {
+  border-left: 2px solid #9099A2;
+  padding-left: 5px;
+}
+
+/*Navigationsbereich umbauen*/
+nav li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+/*Posiionierung der Bilder*/
+figure {
+  float: right;
+}
+
+aside {
+  clear: right;
+}
+
+header {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+}
+header img{
+   width: 30%;
+
+}
+
+/*Fester Fussbereich*/
+footer {
+  position: fixed;
+  bottom: 5px;
+  /* text-align: center; */
+}
+
+
+
+/*responsive design*/
+/*tablet display*/
+@media screen and (max-width:768px) {
+h1{
+  font-size: 0.95em;
+}
+}
+@media screen and (max-width: 480px) {
+  h1{
+    display: none;
+  }
+
+}

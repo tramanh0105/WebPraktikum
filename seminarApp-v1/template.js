@@ -1,0 +1,83 @@
+const data = require("./public/js/script.js");
+exports.semList = function (){
+  return `<!DOCTYPE html>
+  <html lang="de">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Liste der verfügbaren Seminare</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/flexbox.css">
+
+    </script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <img src="img/fhlogo.png" alt="FH Dortmund Logo">
+        <h1>Liste der verfügbaren Seminare</h1>
+      </header>
+
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="aud.html"> Seminardetailseite</a></li>
+          <li><a href="rett.html">Seminarleiter</a></li>
+        </ul>
+        <hr>
+      </nav>
+
+      <div class="sidecontainer">
+
+      <main>
+        <form action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php" method="get">
+          <p>
+            <label for="titel">Suchbegriff:</label>
+            <input id="titel" list="vorschlag" type="text" name="semtitle" maxlength="20" placeholder="Seminartitel" pattern="[A-Z]{1}\w*" required>
+
+            <datalist id="vorschlag">
+              <option value="Webtechnik">
+              <option value="Bwl">
+              <option value="Vwl">
+            </datalist>
+
+            <input type="submit" name="anssenden" value="Finden">
+          </p>
+        </form>
+
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Ind.</th>
+              <th>Seminarräume</th>
+              <th>Titel</th>
+              <th>Datum</th>
+              <th>Veranstaltungsort</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            ${data.addItems()}
+          </tbody>
+        </table>
+        <br>
+        <a href="seminarAnlegen.html">Neues Seminar anlegen</a>
+      </main>
+
+      <aside >
+        <h2>Zusatzinfo</h2>
+        <ul class="zusatz">
+          <li>Seminar Softwaretechnik fällt am 24.05 aus</li>
+          <li>Seminar Softwaretechnik fällt am 24.05 aus</li>
+        </ul>
+      </aside>
+    </div>
+
+    <footer>&#169; 2019 by Tram Anh Nguyen</footer>
+    </div>
+  </body>
+  </html>
+`;
+}

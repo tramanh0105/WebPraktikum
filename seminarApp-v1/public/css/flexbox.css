@@ -1,0 +1,33 @@
+.sidecontainer {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto
+
+}
+
+aside, main {
+  flex-grow: 1;
+}
+
+main {
+  width: 70%;
+  padding-left: 1em;
+}
+
+/*responsive behaviour*/
+@media screen and (max-width: 768px) {
+  .sidecontainer {
+    flex-wrap: wrap;
+  }
+
+  /* main, aside {
+    flex-basis: 100%;
+  } */
