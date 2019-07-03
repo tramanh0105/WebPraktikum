@@ -2,25 +2,14 @@
 
 const express = require("express");
 const app = express();
+//Modul mit den Routen einbinden
+const router = require("./routes/routes.js");
 
 app.use(express.static(__dirname+'/public'));
+app.use(router);
+app.set('view engine', 'ejs');
+
 
 app.listen(8040, function(){
     console.log('server is listening on port 8040');
-});
-
-app.get('/', function(req, res){
-    res.sendFile(__dirname+'/public/dashboard.html');
-});
-app.get('/seminarliste',function(req,res){
-    res.sendFile(__dirname+'/public/seminarliste.html');
-});
-app.get('/seminardetail',function(req,res){
-    res.sendFile(__dirname+'/public/aud.html');
-});
-app.get('/seminarleiter',function(req,res){
-    res.sendFile(__dirname+'/public/rett.html');
-});
-app.get('/seminarneu',function(req,res){
-    res.sendFile(__dirname+'/public/seminarAnlegen.html');
 });

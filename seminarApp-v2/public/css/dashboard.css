@@ -3,20 +3,22 @@ div{
   margin: 20px;
   padding: 20px;
   font-style: italic;
-  background-color:#E37222;
+  /* background-color:#E37222; */
   border-radius: 20px;
   text-align: center;
 }
-a {
+li a{
+  color:#66B9BF;
+}
+ a {
   color:#DFDCE3;
   text-decoration: none;
 }
-
 .flex-container {
   display: flex;
   margin-top: 3em;
   flex-wrap: wrap;
-  padding: 5em 12em;
+  padding: 5em 10em;
 }
 
 .box {
@@ -28,7 +30,7 @@ a {
   height: 150px;
   width: 150px;
   color: white;
-  
+
   background-color: #FC4A1A;
   box-shadow: 5px 10px 20px rgb(94, 101, 101);
 }

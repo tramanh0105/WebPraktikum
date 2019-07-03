@@ -1,0 +1,61 @@
+<%- include("header") -%>
+
+<main>
+  <p>
+    <form action="https://labs.inf.fh-dortmund.de/seminarApp/testCreateSeminar.php" method="post">
+      <fieldset class="fieldset">
+        <legend class="legend">Geben Sie bitte ein:</legend>
+        <p>
+          <label for="titel">Seminartitel: </label>
+
+          <input id="titel" type="text" name="semtitle" placeholder="Börsenseminar" autofocus required maxlength="20" pattern="[A-Z]{1}\w*">
+          <span class="required"></span>
+
+        </p>
+
+        <p>
+          <label for="leiter">SeminarleiterIn: </label>
+          <select id="leiter" name="semlead">
+            <option value="rettinger">Herr Rettinger</option>
+            <option value="joerges" selected> Herr Joerges</option>
+            <option value="stark">Herr Stark</option>
+            <option value="vollmer">Herr Vollmer</option>
+            <option value="kunau">Frau Kunau</option>
+            <option value="harrer">Herr Harrer</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="veranstaltung">Veranstaltungsdatum: </label>
+          <input id="veranstaltung" type="date" name="semdate">
+        </p>
+
+        <p>
+          <label for="startzeit">Startzeit</label>
+          <input id="startzeit" type="time" name="semstart" min="08:00" max="16:00">
+        </p>
+
+        <p>
+          <label for="endzeit">Endezeit</label>
+          <input id="endezeit" type="time" name="semend" max="18:00">
+        </p>
+
+        <p>
+          <label for="seats">Anzahl ingesamt verfügbarer Plätze:</label>
+          <input id="seats" type="number" name="semseats" min="0" max="100">
+        </p>
+
+        <p>
+          <label for="tutor">TutorIn:</label>
+          <input id="tutor" type="text" name="semtutors" pattern="[[a-z]{2,4}[0-9]{1},]*">
+        </p>
+
+        <br>
+        <input type="submit" name="submit" value="Absenden">
+    </form>
+  </p>
+  </fieldset>
+</main>
+
+<%-include("aside") -%>
+<%- include("footer") -%>

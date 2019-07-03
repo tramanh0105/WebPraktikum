@@ -1,0 +1,40 @@
+<%- include("header") -%>
+
+<div class="sidecontainer">
+<main>
+  <form action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php" method="get">
+    <p>
+      <label for="titel">Suchbegriff:</label>
+      <input id="titel" list="vorschlag" type="text" name="semtitle" maxlength="20" placeholder="Seminartitel" pattern="[A-Z]{1}\w*" required>
+      <datalist id="vorschlag">
+        <option value="Webtechnik">
+        <option value="Bwl">
+        <option value="Vwl">
+      </datalist>
+
+      <input type="submit" name="anssenden" value="Finden">
+    </p>
+  </form>
+
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Ind.</th>
+        <th>Seminarräume</th>
+        <th>Titel</th>
+        <th>Datum</th>
+        <th>Veranstaltungsort</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+    </tbody>
+  </table>
+  <br>
+  <a href="seminarAnlegen.html">Neues Seminar anlegen</a>
+</main>
+
+<%-include("aside") -%>
+
+<%-include("footer") -%>
