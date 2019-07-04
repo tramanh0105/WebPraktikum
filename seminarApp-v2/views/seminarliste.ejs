@@ -28,12 +28,22 @@
     </thead>
 
     <tbody>
-
+      <% for(let i = 0 ; i < kindOfSeminars.length ; i++ ){ %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%=kindOfSeminars[i].ort %></td>
+          <td><a href="aud.html"> <%=kindOfSeminars[i].titel %> </a></td>
+          <td><%= kindOfSeminars[i].startzeit %></td>
+          <td>Emil-Fiege-Straße 40</td>
+        </tr>
+      <% } %>
     </tbody>
   </table>
   <br>
   <a href="seminarAnlegen.html">Neues Seminar anlegen</a>
 </main>
+
+<script type="text/javascript" src="js/script.js"></script>
 
 <%-include("aside") -%>
 

@@ -1,6 +1,6 @@
 div{
   align-items: center;
-  margin: 20px;
+  /* margin: 20px; */
   padding: 20px;
   font-style: italic;
   /* background-color:#E37222; */
@@ -8,7 +8,9 @@ div{
   text-align: center;
 }
 li a{
+
   color:#66B9BF;
+  font-size: 1.2em;
 }
  a {
   color:#DFDCE3;
@@ -18,7 +20,7 @@ li a{
   display: flex;
   margin-top: 3em;
   flex-wrap: wrap;
-  padding: 5em 10em;
+  padding: 5em 12em;
 }
 
 .box {

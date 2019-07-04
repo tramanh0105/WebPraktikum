@@ -7,8 +7,6 @@ console.log(viewport);
 
 /*Objekt Seminar*/
 class Seminar{
-
-
 constructor(titel, seminarleiterName, ort,jahr, monat,datum, startzeit,endzeit, freiePlaetze, verfügbarePlaetze, tutoren){
   this.titel = titel;
   this.seminarleiterName = seminarleiterName;
@@ -40,16 +38,20 @@ constructor(titel, seminarleiterName, ort,jahr, monat,datum, startzeit,endzeit, 
  arraySeminar.push(seminar2);
  arraySeminar.push(seminar3);
 
-
  /*sorting array*/
- let sortedSeminar = arraySeminar.sort(function(a,b){
-  return a.startzeit - b.startzeit;
+ arraySeminar.sort(function(a,b){
+   return a.startzeit - b.startzeit;
  });
+ console.log(arraySeminar);
 
+/*Option toLocaleString*/
+let options = { year: 'numeric',
+                month: 'numeric',
+                day: 'numeric'};
 /*Ausgabe*/
- for(let i = 0; i< sortedSeminar.length; i ++ ){
-   let s = sortedSeminar[i];
-   let time = s.startzeit.toLocaleString('de-DE');
+ for(let i = 0; i< arraySeminar.length; i ++ ){
+   let s = arraySeminar[i];
+   let time = s.startzeit.toLocaleString('de-DE',options);
    let seat = s.berechnenBelegterPlaetze(s.verfügbarePlaetze,s.freiePlaetze);
    console.log(`${s.titel}, (${time}, ${seat} von ${s.verfügbarePlaetze} Plaetzen belegt) `);
   }
@@ -90,10 +92,19 @@ constructor(titel, seminarleiterName, ort,jahr, monat,datum, startzeit,endzeit, 
  }
 
  //add an array to table
-function addListSem(semArray) {
-  for(let ind = 1; ind <= semArray.length ;ind ++){
-    addSerm(semArray[ind-1],ind);
-  }
-}
+// exports.addItems = function() {
+//   let result ="";
+//   for(let ind = 1; ind <= arraySeminar.length ;ind ++){
+//     result += `<tr>
+//                   <td>${ind}</td>
+//                   <td>${arraySeminar[ind].ort}</td>
+//                   <td><a href="#">${arraySeminar[ind].titel}</a></td>
+//                   <td>${arraySeminar[ind].startzeit.toLocaleString('de-DE')}</td>
+//                   <td>Emil-Fiege Straße</td>
+//               </tr>`;
+//     addSerm(arraySeminar[ind-1],ind);
+//   }
+//   return result;
+// };
 
-addListSem(sortedSeminar);
+// addListSem(arraySeminar);

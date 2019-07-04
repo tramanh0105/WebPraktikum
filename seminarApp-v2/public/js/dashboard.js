@@ -1,8 +1,9 @@
 document.getElementById('addDiv').addEventListener('click',function(){
     let titel = prompt("Bitte geben Sie Titel ein!");
     let url = prompt("Bitte geben Sie URL ein!");
-
+    if(titel !=="" && url !== ""){
     addKacheln(titel,url);
+  }
 });
 
 function addKacheln(titel, url){
