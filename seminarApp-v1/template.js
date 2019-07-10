@@ -1,85 +1,101 @@
-const dataSem = require("./public/js/script.js");
-// const seminars = require("./public/js/script.js");
+const table = require('./public/js/script');
+let options = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+};
+function tableData(seminars) {
+  var result = '';
+  for (let i = 0; i < seminars.length; i++) {
+      result +=`<tr>
+                  <td>${i+1}</td>
+                  <td>${seminars[i].ort}</td>
+                  <td><a href="aud.html">${seminars[i].titel}</a></td>
+                  <td>${seminars[i].startzeit.toLocaleString("de-DE",options)}</td>
+                  <td>Emil-Fiege-Straße 40</td>
+                </tr>`;
+    }
 
-
-module.exports.createHTML = function createHTML(seminars){
+  return result;
+};
+module.exports.seminarListe = function(seminars) {
   return `<!DOCTYPE html>
-<html lang="de">
+  <html lang="de">
 
-<head>
-  <meta charset="utf-8">
-  <title>Liste der verfügbaren Seminare</title>
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
-  <link rel="stylesheet" type="text/css" href="./css/flexbox.css">
+  <head>
+    <meta charset="utf-8">
+    <title>Liste der verfügbaren Seminare</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/flexbox.css">
 
-</head>
+  </head>
 
-<body>
-  <div class="container">
-    <header>
-      <img src="img/fhlogo.png" alt="FH Dortmund Logo">
-      <h1>Liste der verfügbaren Seminaren</h1>
-    </header>
+  <body>
+    <div class="container">
+      <header>
+        <img src="img/fhlogo.png" alt="FH Dortmund Logo">
+        <h1>Liste der verfügbaren Seminare</h1>
+      </header>
 
-    <nav>
-      <ul>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="aud.html"> Seminardetailseite</a></li>
-        <li><a href="rett.html">Seminarleiter</a></li>
-      </ul>
-      <hr>
-    </nav>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="aud.html"> Seminardetailseite</a></li>
+          <li><a href="rett.html">Seminarleiter</a></li>
+        </ul>
+        <hr>
+      </nav>
 
-    <div class="sidecontainer">
+      <div class="sidecontainer">
 
-    <main>
-      <form action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php" method="get">
-        <p>
-          <label for="titel">Suchbegriff:</label>
-          <input id="titel" list="vorschlag" type="text" name="semtitle" maxlength="20" placeholder="Seminartitel" pattern="[A-Z]{1}\w*" required>
+      <main>
+        <form action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php" method="get">
+          <p>
+            <label for="titel">Suchbegriff:</label>
+            <input id="titel" list="vorschlag" type="text" name="semtitle" maxlength="20" placeholder="Seminartitel" pattern="[A-Z]{1}\w*" required>
 
-          <datalist id="vorschlag">
-            <option value="Webtechnik">
-            <option value="Bwl">
-            <option value="Vwl">
-          </datalist>
+            <datalist id="vorschlag">
+              <option value="Webtechnik">
+              <option value="Bwl">
+              <option value="Vwl">
+            </datalist>
 
-          <input type="submit" name="anssenden" value="Finden">
-        </p>
+            <input type="submit" name="anssenden" value="Finden">
+          </p>
         </form>
-        <table>
-          <tr>
-            <th>Ind.</th>
-            <th>Seminarräume</th>
-            <th>Titel</th>
-            <th>Datum</th>
-            <th>Veranstaltungsort</th>
-          </tr>
-        </thead>
 
-        <tbody>
-            ${dataSem.addItem()}
-        </tbody>
-      </table>
-      <br>
-      <a href="seminarAnlegen.html">Neues Seminar anlegen</a>
-    </main>
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Ind.</th>
+              <th>Seminarräume</th>
+              <th>Titel</th>
+              <th>Datum</th>
+              <th>Veranstaltungsort</th>
+            </tr>
+          </thead>
 
-    <aside >
-      <h2>Zusatzinfo</h2>
-      <ul class="zusatz">
-        <li>Seminar Softwaretechnik fällt am 24.05 aus</li>
-        <li>Seminar Softwaretechnik fällt am 24.05 aus</li>
-      </ul>
-    </aside>
-  </div>
+          <tbody>
+            ${tableData(seminars)}
+          </tbody>
+        </table>
+        <br>
+        <a href="seminarAnlegen.html">Neues Seminar anlegen</a>
+      </main>
 
-  <footer>&#169; 2019 by Tram Anh Nguyen</footer>
-  </div>
-  <script type="text/javascript" src="js/script.js"></script>
-</body>
+      <aside >
+        <h2>Zusatzinfo</h2>
+        <ul class="zusatz">
+          <li>Seminar Softwaretechnik fällt am 24.05 aus</li>
+          <li>Seminar Softwaretechnik fällt am 24.05 aus</li>
+        </ul>
+      </aside>
+    </div>
 
-
-</html>
+    <footer>&#169; 2019 by Tram Anh Nguyen</footer>
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+  </html>
 `;
 }

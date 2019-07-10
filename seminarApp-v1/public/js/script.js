@@ -17,7 +17,7 @@ class Seminar {
     this.verfügbarePlaetze = verfügbarePlaetze;
     this.tutoren = tutoren;
   }
-  // /*Berechnung belegter Plaetze*/
+  /*Berechnung belegter Plaetze*/
 
   berechnenBelegterPlaetze(verfügbarePlaetze, freiePlaetze) {
     return verfügbarePlaetze - freiePlaetze;
@@ -25,7 +25,7 @@ class Seminar {
   }
 }
 
-// /*Instanzen und Array*/
+/*Instanzen und Array*/
 let tutoren = ["ane1", "tim2"];
 
 let seminar1 = new Seminar('NodeJs', 'Herr Jörges', 'A.E.01', 2019, 4, 19, 10, 13, 12, 100, tutoren);
@@ -60,7 +60,6 @@ for (let i = 0; i < arraySeminar.length; i++) {
 /*Tabele der Seminar erzeugen*/
 function addSem(sem, index) {
   let table = document.getElementById('table').getElementsByTagName('tbody')[0];
-  // console.log(table);
 
   //Insert a row in the table at the last row
   let newRow = table.insertRow();
@@ -100,21 +99,5 @@ function addListSem(semArray) {
 }
 
 let sortedArray = [seminar1, seminar2, seminar3];
-
-module.exports.addItem = function() {
-    let result = "";
-    for (let i = 0; i < sortedArray.length; i++) {
-      if (typeof sortedArray[i] !== "undefined") {
-        result += `<tr>
-                  <td>${i+1}</td>
-                  <td>${sortedArray[i].ort}</td>
-                  <td><a href="aud.html">${sortedArray[i].titel}</a></td>
-                  <td>${sortedArray[i].startzeit.toLocaleString('de-DE',options)}</td>
-                  <td>Emil-Fiege-Straße 40</td>
-                </tr>`;
-      }
-    }
-    return result;
-  };
 
 // addListSem(sortedSemina);
